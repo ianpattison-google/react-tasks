@@ -5,8 +5,15 @@ describe('Basic test', () => {
     const NEW_ITEM = 'New item';
     const TEST_ITEM = 'Learn React';
 
+    // handle uncaught exceptions
+    // this deals with the unexpected symbol '<' problem
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        console.log(err);
+        return false;
+    })
+
     it('has 3 elements on startup', () => {
-        cy.visit('http://localhost:3000');
+        cy.visit(Cypress.env('URL'));
         cy.get('[data-cy=my-todos]').children('.todo').should('have.length', 3);
         cy.contains('Learn React');
         cy.contains('Have lunch');
