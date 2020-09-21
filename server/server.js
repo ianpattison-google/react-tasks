@@ -4,7 +4,12 @@ const app = express();
 const port = process.env.PORT;
 
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('mysql://root:password@cloudsql/ianpattison-react-tasks:europe-west1:react-tasks');
+const sequelize = new Sequelize('react-tasks', 'root', 'password', {
+    dialect: 'mysql',
+    dialectOptions: {
+        socketPath: '/cloudsql/ianpattison-react-tasks:europe-west1:react-tasks'
+    }
+});
 
 // define the ORM model
 const Todo = sequelize.define('Todo', {
