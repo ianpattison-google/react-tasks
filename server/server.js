@@ -6,6 +6,7 @@ const port = process.env.PORT;
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('react-tasks', 'root', 'password', {
     dialect: 'mysql',
+    host: '/cloudsql/ianpattison-react-tasks:europe-west1:react-tasks',
     dialectOptions: {
         socketPath: '/cloudsql/ianpattison-react-tasks:europe-west1:react-tasks'
     }
