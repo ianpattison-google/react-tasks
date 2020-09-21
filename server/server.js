@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('react-tasks', 'root', 'password', {
