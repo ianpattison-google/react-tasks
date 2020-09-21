@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT;
 
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('mysql://root@password@35.205.83.150/ianpattison-react-tasks:europe-west1:react-tasks');
+const sequelize = new Sequelize('mysql://root:password@cloudsql/ianpattison-react-tasks:europe-west1:react-tasks');
 
 // define the ORM model
 const Todo = sequelize.define('Todo', {
